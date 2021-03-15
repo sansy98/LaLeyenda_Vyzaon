@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     game_map =  load_map("0_1")
     grass_img = pg.image.load(f"{tile_path}1_grass.png")
-    #dirt_img = pg.image.load(f"{tile_path}1_dirt.png")
+    dirt_img = pg.image.load(f"{tile_path}1_dirt.png")
 
     player_img = pg.image.load('sprites/player_animations/idle/idle_0.png')
     player_img.set_colorkey((255, 255, 255))
@@ -117,7 +117,7 @@ if __name__ == "__main__":
                 if tile == '2': 
                     SCREEN.blit(grass_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                 elif tile == '1': 
-                    pg.draw.rect(SCREEN, (129, 89, 86), Rect(x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1], TILE_SIZE, TILE_SIZE))
+                    SCREEN.blit(dirt_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                 if tile != '0':
                     tangible_tiles.append(Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE))
                 x+=1
@@ -141,8 +141,11 @@ if __name__ == "__main__":
             on_air = False
         else: on_air = True
         if collisions['top']:    player_ymomentum = 1
-
-        SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+        
+        if moving_right:
+            SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+        else:
+            SCREEN.blit(pg.transform.flip(player_img, False, True), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
 
         #SCREEN & TIMING UPDATES----------------------------#
 
