@@ -66,6 +66,7 @@ if __name__ == "__main__":
     game_map =  load_map("0_1")
     grass_img = pg.image.load(f"{tile_path}1_grass.png")
     grassCOR_img = pg.image.load(f"{tile_path}1_grassCOR.png")
+    grassCOR_img.set_colorkey((255, 255, 255))
     dirt_img = pg.image.load(f"{tile_path}1_dirt.png")
 
     player_img = pg.image.load('sprites/player_animations/idle/idle_1.png')
