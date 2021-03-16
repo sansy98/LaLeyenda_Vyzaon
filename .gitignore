@@ -1,3 +1,9 @@
+#FICHEROS SANSY
 edit.sh
+debug
+.DS_Store
+
+#FICHEROS PB
 */*/*.ase
 */*/*/*.ase
+

@@ -71,9 +71,16 @@ if __name__ == "__main__":
     player_img.set_colorkey((255, 255, 255))
     player_rect = pg.rect.Rect(3*TILE_SIZE, 2*TILE_SIZE, TILE_SIZE/2, TILE_SIZE)
     player_ymomentum = 0
-    on_air = False
+    jumping = False
+    onair_timer = 0
+    last_orientation = True       #True -> Right |-| False -> Left
 
     precise_scroll = [player_rect.x, player_rect.y]
+    
+
+    #Debug vars, ignore these
+    #debug_var = 0
+
 
     while True:
         SCREEN.fill((0, 200, 240))
@@ -92,14 +99,16 @@ if __name__ == "__main__":
                     moving_right = True
                 if event.key == K_a:
                     moving_left = True
-                if event.key == K_SPACE and not on_air:    
-                    player_ymomentum = -6
-            
+                if event.key == K_SPACE and onair_timer == 0:    
+                    jumping = True
+
             if event.type == KEYUP:
                 if event.key == K_d:
                     moving_right = False
                 if event.key == K_a:
                     moving_left = False
+                if event.key == K_SPACE and jumping:
+                    jumping = False
 
         #CAMERA------------------------------------------#
         precise_scroll[0] += (player_rect.x-precise_scroll[0]-(454/2 + 4))/20
@@ -127,30 +136,54 @@ if __name__ == "__main__":
         player_movement = [0, 0]
         if moving_right:
             player_movement[0] += 2
+            last_orientation = True
         if moving_left:
             player_movement[0] -= 2
+            last_orientation = False
+
         player_movement[1] += player_ymomentum
-        player_ymomentum += 0.2
+        if jumping:
+            if onair_timer == 0:
+                player_ymomentum = -2
+            player_ymomentum += -0.2
+        else: player_ymomentum += 0.2
+        if onair_timer > 8:
+            jumping = False
         if player_ymomentum > 3:
             player_ymomentum = 3
         
         player_rect, collisions = move(player_rect, player_movement, tangible_tiles)
 
-        if collisions['bottom']: 
+        if collisions['bottom'] and onair_timer > 0:
+            onair_timer = 0
+            jumping = False
             player_ymomentum = 1
-            on_air = False
-        else: on_air = True
-        if collisions['top']:    player_ymomentum = 1
+        elif not collisions['bottom'] and jumping:
+            onair_timer += 1
+            print(onair_timer)
+        if collisions['top']:    
+            player_ymomentum = 1
         
         if moving_right:
             SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+        elif moving_left:
+            SCREEN.blit(pg.transform.flip(player_img, True, False), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
         else:
-            SCREEN.blit(pg.transform.flip(player_img, False, True), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+            if last_orientation:
+                SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+            else:
+                SCREEN.blit(pg.transform.flip(player_img, True, False), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
 
         #SCREEN & TIMING UPDATES----------------------------#
 
         pg.transform.scale(SCREEN, RESOLUTION, FSCREEN)
         pg.display.update()
         CLOCK.tick(60)
-    
+        
+        #DEBUGGING SECTION----------------------------------#
+#        print(f"topColi = {collisions['top']} ||| bottomColi = {collisions['bottom']}")
+#        if collisions['top']:
+#            pg.image.save(FSCREEN, f"debug/{debug_var}.png")
+#            debug_var += 1
+        
     pg.quit()
