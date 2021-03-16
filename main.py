@@ -65,9 +65,10 @@ if __name__ == "__main__":
 
     game_map =  load_map("0_1")
     grass_img = pg.image.load(f"{tile_path}1_grass.png")
+    grassCOR_img = pg.image.load(f"{tile_path}1_grassCOR.png")
     dirt_img = pg.image.load(f"{tile_path}1_dirt.png")
 
-    player_img = pg.image.load('sprites/player_animations/idle/idle_0.png')
+    player_img = pg.image.load('sprites/player_animations/idle/idle_1.png')
     player_img.set_colorkey((255, 255, 255))
     player_rect = pg.rect.Rect(3*TILE_SIZE, 2*TILE_SIZE, TILE_SIZE/2, TILE_SIZE)
     player_ymomentum = 0
@@ -123,10 +124,21 @@ if __name__ == "__main__":
         for layer in game_map:
             x=0
             for tile in layer:
-                if tile == '2': 
-                    SCREEN.blit(grass_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
-                elif tile == '1': 
+                if tile == '1': 
                     SCREEN.blit(dirt_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
+                elif tile == '2': 
+                    try:
+                        if game_map[y][x+1] == '0' or x == len(layer)-1:
+                            SCREEN.blit(grassCOR_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
+                    except IndexError:
+                        SCREEN.blit(grassCOR_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
+                    try:
+                        if game_map[y][x-1] == '0':
+                            SCREEN.blit(pg.transform.flip(grassCOR_img, True, False), (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
+                    except IndexError:
+                        SCREEN.blit(pg.transfrom.flip(grassCOR_img, True, False), (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
+                    if (game_map[y][x-1] == '0' and game_map[y][x+1] == '0') or (game_map[y][x-1] != '0' and game_map[y][x+1] != '0'):
+                        SCREEN.blit(grass_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                 if tile != '0':
                     tangible_tiles.append(Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE))
                 x+=1
@@ -158,9 +170,9 @@ if __name__ == "__main__":
             onair_timer = 0
             jumping = False
             player_ymomentum = 1
-        elif not collisions['bottom'] and jumping:
+        elif not collisions['bottom']:
             onair_timer += 1
-            print(onair_timer)
+
         if collisions['top']:    
             player_ymomentum = 1
         
