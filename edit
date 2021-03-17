@@ -1,0 +1,2 @@
+#!/bin/bash
+~/nvim-osx64/bin/nvim $1
