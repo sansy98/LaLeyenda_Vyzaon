@@ -7,13 +7,15 @@ from math import floor
 def toggle_map_editor(game_map, isMouseClicked, current_tile, scroll, mapped_tiles):
     editor_surface = pg.Surface((455, 270))
     display_font = pg.font.SysFont('Helvetica', 15)
+    displayInfo = pg.display.Info()
+    native_res = (displayInfo.current_w, displayInfo.current_h)
     text_surface = display_font.render(f"Current tile: {current_tile}", False, (255, 0, 0))
     cells = []
     
     #Edit tile
     if isMouseClicked:
         raw_mouse_pos = pg.mouse.get_pos()
-        mouse_pos = ((raw_mouse_pos[0]*455)/1280, (raw_mouse_pos[1]*270)/800)
+        mouse_pos = ((raw_mouse_pos[0]*455)/native_res[0], (raw_mouse_pos[1]*270)/native_res[1])
         tile_found = False
         try:
             y=0
