@@ -2,8 +2,9 @@
 edit
 debug
 .DS_Store
+maps/0_1.txt
+scripts/__pycache__
 
 #FICHEROS PB
 */*/*.ase
 */*/*/*.ase
-
