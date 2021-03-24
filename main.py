@@ -2,6 +2,7 @@ import pygame as pg
 from pygame.locals import *
 import sys
 from scripts.map_editor import toggle_map_editor
+from random import randint
 
 def load_map(path):
     f = open('maps/' + path + '.txt', 'r')
@@ -18,7 +19,10 @@ def save_map(path, game_map):
     for line in game_map:
         f.write('\n')
         for num in line:
-            f.write(num)
+            if num == '3':
+                f.write('1')
+            else:
+                f.write(num)
     f.close()
 
 def collision_test(rect, tiles):
@@ -69,20 +73,33 @@ if __name__ == "__main__":
 
     moving_right = False
     moving_left = False
-
-    game_map =  load_map("0_1")
+    
+    map_name = "0_1"
+    game_map =  load_map(map_name)
     grass_img = pg.image.load(f"{tile_path}1_grass.png")
     grassCOR_img = pg.image.load(f"{tile_path}1_grassCOR.png")
     grassCOR_img.set_colorkey((255, 255, 255))
     dirt_img = pg.image.load(f"{tile_path}1_dirt.png")
+    dirtALT_img = pg.image.load(f"{tile_path}1_dirtALT.png")
+    background1_img = pg.image.load(f"maps/background/{map_name}-1.png")
+    background2_img = pg.image.load(f"maps/background/{map_name}-2.png")
+    background3_img = pg.image.load(f"maps/background/{map_name}-3.png")
+    background1_img.set_colorkey((255, 255, 255))
+    background2_img.set_colorkey((255, 255, 255))
+    background3_img.set_colorkey((255, 255, 255))
+    background1_pos = 0
+    background2_pos = 0
 
+    ANIMATION_timer = 0
     player_img = pg.image.load('sprites/player_animations/idle/idle_1.png')
     player_img.set_colorkey((255, 255, 255))
     player_rect = pg.rect.Rect(3*TILE_SIZE, 2*TILE_SIZE, TILE_SIZE/2, TILE_SIZE)
+    player_moving_path = 'sprites/player_animations/moving/moving_'
     player_ymomentum = 0
     jumping = False
     onair_timer = 0
     last_orientation = True       #True -> Right |-| False -> Left
+    total_gens = 0
 
     precise_scroll = [player_rect.x, player_rect.y]
     
@@ -166,6 +183,28 @@ if __name__ == "__main__":
         scroll[1] = int(scroll[1])
 
         #DRAWING-----------------------------------------#
+        ##Background
+        SCREEN.blit(background3_img, (0, 0))
+        if moving_right:
+            background2_pos -= 0.1
+            background1_pos -= 0.25
+        elif moving_left:
+            background2_pos += 0.1
+            background1_pos += 0.25
+
+        if background2_pos <= -LOCAL_RESOLUTION[0] or background2_pos >= LOCAL_RESOLUTION[0]:
+            background2_pos = 0
+        if background1_pos <= -LOCAL_RESOLUTION[0] or background1_pos >= LOCAL_RESOLUTION[0]:
+            background1_pos = 0
+
+        SCREEN.blit(background2_img, (background2_pos, 0))
+        SCREEN.blit(background2_img, (background2_pos+LOCAL_RESOLUTION[0], 0))
+        SCREEN.blit(background2_img, (background2_pos-LOCAL_RESOLUTION[0], 0))
+        SCREEN.blit(background1_img, (background1_pos, 0))
+        SCREEN.blit(background1_img, (background1_pos+LOCAL_RESOLUTION[0], 0))
+        SCREEN.blit(background1_img, (background1_pos-LOCAL_RESOLUTION[0], 0))
+    
+        ##Foreground
         mapped_tiles = []
         tangible_tiles = []
         y=0
@@ -174,7 +213,9 @@ if __name__ == "__main__":
             mapped_tiles.append([])
             for tile in layer:
                 mapped_tiles[y].append(Rect(x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1], TILE_SIZE, TILE_SIZE))
-                if tile == '1': 
+                if tile == '1':
+                    if total_gens == 0 and randint(0, 100) >= 95:
+                        game_map[y][x] = '3'
                     SCREEN.blit(dirt_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                 elif tile == '2': 
                     try:
@@ -200,10 +241,13 @@ if __name__ == "__main__":
                             SCREEN.blit(grassCOR_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                     except IndexError:
                         pass
+                if tile == '3':
+                    SCREEN.blit(dirtALT_img, (x*TILE_SIZE-scroll[0], y*TILE_SIZE-scroll[1]))
                 if tile != '0' and not EDITOR_active:
                     tangible_tiles.append(Rect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE))
                 x+=1
             y+=1
+        total_gens += 1
 
         #Movement & Collision--------------------------#
         player_movement = [0, 0]
@@ -252,10 +296,30 @@ if __name__ == "__main__":
             
         ##Draw player or editor surface
         if not EDITOR_active:
+            ANIMATION_timer += 0.05
+            if ANIMATION_timer <= 0.3:
+               curr_frame = 1
+            elif ANIMATION_timer <= 0.6:
+               curr_frame = 2
+            elif ANIMATION_timer <= 0.9:
+               curr_frame = 3
+            elif ANIMATION_timer <= 1.2:
+               curr_frame = 4
+            elif ANIMATION_timer <= 1.5:
+               curr_frame = 5
+            elif ANIMATION_timer <= 1.8:
+               curr_frame = 6
+            elif ANIMATION_timer <= 2.1:
+               curr_frame = 7
+            else:
+               curr_frame = 8
+               ANIMATION_timer = 0
+            player_mv_img = pg.image.load(player_moving_path + str(curr_frame) + '.png')
+            player_mv_img.set_colorkey((255, 255, 255))
             if moving_right:
-                SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+                SCREEN.blit(player_mv_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
             elif moving_left:
-                SCREEN.blit(pg.transform.flip(player_img, True, False), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
+                SCREEN.blit(pg.transform.flip(player_mv_img, True, False), (player_rect.x-scroll[0], player_rect.y-scroll[1]))
             else:
                 if last_orientation:
                     SCREEN.blit(player_img, (player_rect.x-scroll[0], player_rect.y-scroll[1]))
