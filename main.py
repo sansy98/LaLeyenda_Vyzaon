@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 from scripts.map_editor import toggle_map_editor
 import scripts.shaders
+import scripts.entities as entities
 from random import randint
 
 def load_map(path):
@@ -97,6 +98,13 @@ if __name__ == "__main__":
     background3_img.set_colorkey((255, 255, 255))
     background1_pos = 0
     background2_pos = 0
+    #TODO
+    ALL_ALPHA = 255
+
+    goblin_img = pg.image.load(f"sprites/entities/mob_gobl.png")
+    entities_list = [entities.Entity(136, 176, goblin_img)]
+
+    #END TODO
 
     ANIMATION_timer = 0
     player_img = pg.image.load('sprites/player_animations/idle/idle_1.png')
@@ -352,6 +360,13 @@ if __name__ == "__main__":
             except NameError:
                 EDITOR_surface, game_map = toggle_map_editor(game_map, None, EDITOR_current_tile, scroll, mapped_tiles)
             EDITOR_isMouseClicked = False
+
+        ##Manage entities
+        if not paused:
+            for entity in entities_list:
+                entity.sprite.set_colorkey((255,255,255))
+                SCREEN.blit(entity.sprite, (entity.x-scroll[0], entity.y-scroll[1]))
+                #entity.update()
 
         #SCREEN & TIMING UPDATES----------------------------#
         if EDITOR_active:
