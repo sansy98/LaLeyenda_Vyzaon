@@ -1,0 +1,99 @@
+header{
+    display: none !important;
+    display: grid;
+    height: 100vh;
+    #loadingwindow{
+        display: none !important;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(173, 159, 159);
+        height: 100vh;
+        width: 100%;
+        animation: up 5s  normal forwards;
+        animation-delay: 5s;
+        z-index: 1;
+        #load_image{
+            align-self: center;
+            width: 42%;
+            height: 32%;
+        }
+    }  
+    #main_font{
+        font-family: "Press Start 2P" !important;
+        font-size: 4vw;
+        align-self: center;
+        position: absolute;
+        top: 55%;
+        color: #0015fa;
+    }
+    .in-1{
+        left: 30%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        // animation-delay: 2s;
+        animation-iteration-count: 4;
+    }
+    .in-2{
+        left: 34%;
+        animation: let1 1s reverse ease-in-out backwards;
+        animation-delay: 0.3s;
+        animation-iteration-count: 4;        
+    }
+    .in-3{
+        left: 38%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.4s;
+        animation-iteration-count: 4;
+    }
+    .in-4{
+        left: 42%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.5s;
+        animation-iteration-count: 4;
+    }
+    .in-5{
+        left: 46%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.6s;
+        animation-iteration-count: 4;
+    }
+    .in-6{
+        left: 50%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.7s;
+        animation-iteration-count: 4;
+    }
+    .in-7{
+        left: 53.5%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.8s;
+        animation-iteration-count: 4;
+    }
+    .in-8{
+        left: 57%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 0.9s;
+        animation-iteration-count: 4;
+    }
+    .in-9{
+        left: 61%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 1.0s;
+        animation-iteration-count: 4;
+    }
+    .in-10{
+        left: 65%;
+        animation: let1 1s reverse infinite ease-in-out ;
+        animation-delay: 1.1s;
+        animation-iteration-count: 4;
+    }
+}
+@keyframes let1{
+    0%{top: 55%;}
+    50%{top: 50%;}
+    100%{top:55%}
+}
+@keyframes up {
+    from{top: 0%}
+    to{top:-100%}
+}
