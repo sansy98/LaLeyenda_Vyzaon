@@ -6,6 +6,7 @@ import scripts.shaders
 import scripts.entities as entities
 from random import randint
 
+
 def load_map(path):
     f = open('maps/' + path + '.txt', 'r')
     data = f.read()
@@ -18,13 +19,16 @@ def load_map(path):
 
 def save_map(path, game_map):
     f = open('maps/' + path + '.txt', 'w')
+    i = 0
     for line in game_map:
-        f.write('\n')
         for num in line:
             if num == '3':
                 f.write('1')
             else:
                 f.write(num)
+        if i+1 != len(game_map):
+            f.write('\n')
+        i += 1
     f.close()
 
 def collision_test(rect, tiles):
@@ -66,6 +70,10 @@ def pause_menu():
     PAUSE_surface.blit(text_surface, (455//3, 70))
     return PAUSE_surface
 
+def change_lvl(lvl_path):
+    pass
+
+
 if __name__ == "__main__":
     
     pg.init()
@@ -98,13 +106,9 @@ if __name__ == "__main__":
     background3_img.set_colorkey((255, 255, 255))
     background1_pos = 0
     background2_pos = 0
-    #TODO
-    ALL_ALPHA = 255
 
     goblin_img = pg.image.load(f"sprites/entities/mob_gobl.png")
-    entities_list = [entities.Entity(136, 176, goblin_img)]
-
-    #END TODO
+    entities_list = [entities.Entity((39*16),(15*16), goblin_img)]
 
     ANIMATION_timer = 0
     player_img = pg.image.load('sprites/player_animations/idle/idle_1.png')
@@ -115,6 +119,8 @@ if __name__ == "__main__":
     player_rotating_left = False
     player_rotating_right= False
     player_rotation = 0
+    player_hp = 5
+    player_vulnerable = True
     paused = False
     jumping = False
     onair_timer = 0
@@ -275,6 +281,11 @@ if __name__ == "__main__":
             y+=1
         total_gens += 1
 
+        ##HUD
+        curr_HPBar = pg.image.load(f"sprites/hud/HBar_{player_hp}.png")
+        curr_HPBar.set_colorkey((255,255,255))
+        SCREEN.blit(curr_HPBar, (10, 10))
+        
         #Movement & Collision--------------------------#
         player_movement = [0, 0]
         if not EDITOR_active:
@@ -298,6 +309,7 @@ if __name__ == "__main__":
                 jumping = False
             if player_ymomentum > 3:
                 player_ymomentum = 3
+
         elif EDITOR_active and not paused:
             try:
                 if EDITOR_moving_up:
@@ -310,6 +322,8 @@ if __name__ == "__main__":
 
         if not paused:
             player_rect, collisions = move(player_rect, player_movement, tangible_tiles)
+            for entity in entities_list:
+                entity.rect, entity.collisions = move(entity.rect, entity.movement, tangible_tiles)
         
         if not EDITOR_active:
             if collisions['bottom'] and onair_timer > 0:
@@ -362,11 +376,22 @@ if __name__ == "__main__":
             EDITOR_isMouseClicked = False
 
         ##Manage entities
-        if not paused:
+        if not paused and not EDITOR_active:
             for entity in entities_list:
                 entity.sprite.set_colorkey((255,255,255))
-                SCREEN.blit(entity.sprite, (entity.x-scroll[0], entity.y-scroll[1]))
-                #entity.update()
+                if entity.rect.colliderect(player_rect) and player_vulnerable:
+                    #IF ENEMY TOUCHES PLAYER
+                    player_hp -= 1
+                    player_vulnerable = False
+                    #IF ENEMY TOUCHES PLAYER END
+                if not entity.rect.colliderect(player_rect) and not player_vulnerable:
+                    player_vulnerable = True
+
+                if entity.direction == 0:   
+                    SCREEN.blit(pg.transform.flip(entity.sprite, True, False), (entity.rect.x-scroll[0], entity.rect.y-scroll[1]))
+                elif entity.direction == 1:    
+                    SCREEN.blit(entity.sprite, (entity.rect.x-scroll[0], entity.rect.y-scroll[1]))
+                entity.update()
 
         #SCREEN & TIMING UPDATES----------------------------#
         if EDITOR_active:
