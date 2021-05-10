@@ -1,0 +1,27 @@
+@import "components/resset.scss";
+@import "components/remove.scss";
+@import "components/loadwindow.scss";
+@import "components/z_teaser.scss";
+@import "components/z_personaje.scss";
+@import "components/z_monstruos.scss";
+// @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+// compilar sass a css
+    // sass --watch pagina_web/styles/sass/main.scss pagina_web/styles/css/custom.css
+    // sass --watch styles/sass/main.scss styles/css/custom.css
+
+html{
+    ::-webkit-scrollbar{
+        display: none;
+    }
+}
+.main-container {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    background-color: rgb(255, 255, 255);
+    z-index: -2;
+}
+    

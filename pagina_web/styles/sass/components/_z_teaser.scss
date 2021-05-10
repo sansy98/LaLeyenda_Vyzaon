@@ -1,0 +1,248 @@
+.z-teaser {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+
+    .lazo {
+        z-index: -1;
+        align-self: self-start;
+        justify-self: center;
+        position: absolute;
+        top: 3%;
+        width: 88%;
+        height: 21%;
+    }
+
+    .btn {
+        background-image: url(../../../media/imagenes/z_teaser/button_dowload.png);
+        align-self: center;
+        justify-self: center;
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16%;
+        height: 15%;
+    }
+
+    .btn:hover {
+        transition: 1s;
+        transform: scale(1.03);
+        filter: brightness(3.5);
+        cursor: pointer;
+    }
+
+    .arrow_dow {
+        position: absolute;
+        align-self: flex-end;
+        width: 2%;
+        height: 10%;
+        justify-self: right;
+        bottom: 13%;
+        right: 2%;
+    }
+
+    .arrow_dow:hover {
+        transition: 1s;
+        transform: scale(1.1);
+    }
+
+    .arrow_up {
+        position: absolute;
+        align-self: flex-start;
+        width: 2%;
+        height: 10%;
+        justify-self: flex-end;
+        bottom: 55%;
+        right: 2%;
+    }
+
+    .arrow_up:hover {
+        transition: 1s;
+        transform: scale(1.1);
+    }
+
+    .gema1 {
+        position: absolute;
+        width: 5%;
+        left: 81.2%;
+        top: 13%;
+        height: 7%;
+        animation: gem 5s infinite;
+    }
+
+    .gema2 {
+        position: absolute;
+        width: 5%;
+        left: 13.2%;
+        top: 13%;
+        height: 7%;
+        animation: gem 5s infinite;
+    }
+
+    .zt-font {
+        font-family: $font-style;
+        color: $font-color2;
+        top: 8%;
+        font-size: 5vh;
+        position: absolute;
+    }
+    .video-game{
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+@keyframes gem {
+    0% {
+        transform: rotateY(0deg);
+        filter: hue-rotate(0);
+    }
+
+    20% {
+        transform: rotateY(360deg);
+        filter: hue-rotate(90deg);
+    }
+}
+
+.let1 {
+    left: 21%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8s;
+
+}
+
+.let2 {
+    left: 24%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.1s;
+
+}
+
+.let3 {
+    left: 28%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.2s;
+
+}
+
+.let4 {
+    left: 31%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.3s;
+
+}
+
+.let5 {
+    left: 33.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.4s;
+
+}
+
+.let6 {
+    left: 36.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.5s;
+
+}
+
+.let7 {
+    left: 39.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.6s;
+
+}
+
+.let8 {
+    left: 42.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.7s;
+
+}
+
+.let9 {
+    left: 45.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 8.9s;
+
+}
+
+.let10 {
+    left: 49.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9s;
+
+}
+
+.let11 {
+    left: 52.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.1s;
+
+}
+
+.let12 {
+    left: 56.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.2s;
+
+}
+
+.let13 {
+    left: 59.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.3s;
+
+}
+
+.let14 {
+    left: 62.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.4s;
+
+}
+
+.let15 {
+    left: 65.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.5s;
+
+}
+
+.let16 {
+    left: 68.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.6s;
+
+}
+
+.let17 {
+    left: 71.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.7s;
+
+}
+
+.let18 {
+    left: 74.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 9.8s;
+
+}
+
+@keyframes let2 {
+    0% {
+        top: 8%;
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        top: 5%;
+        filter: hue-rotate(50deg);
+    }
+
+    100% {
+        top: 8%;
+        filter: hue-rotate(0deg);
+    }
+}
