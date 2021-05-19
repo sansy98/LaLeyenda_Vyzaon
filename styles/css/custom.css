@@ -1,0 +1,666 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header {
+  display: grid;
+  height: 100vh;
+}
+header #loadingwindow {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  background-image: url(../../../media/imagenes/z_load/img_fondo_connection.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  animation: up 2s normal forwards;
+  animation-delay: 4s;
+  z-index: 1;
+}
+header #loadingwindow #load_image {
+  align-self: center;
+  width: 74vh;
+  position: absolute;
+  top: 33vh;
+}
+header #loadingwindow #load_image-back {
+  align-self: center;
+  width: 107vh;
+  height: 42vh;
+  position: absolute;
+  z-index: -1;
+}
+header #main-font {
+  font-family: "Press Start 2P", cursive;
+  color: #0015fa;
+  font-size: 7vh;
+  align-self: center;
+  position: absolute;
+  top: 60vh;
+}
+
+@keyframes up {
+  from {
+    top: 0%;
+  }
+  to {
+    top: -100%;
+  }
+}
+@keyframes l-fill {
+  from {
+    width: 0vh;
+  }
+  to {
+    width: 104vh;
+  }
+}
+#load_image-barr {
+  width: 107vh;
+  height: 42vh;
+  position: absolute;
+  z-index: -1;
+  top: 58vh !important;
+}
+
+#load_image-barr-letter {
+  width: 99vh;
+  height: 42vh;
+  position: absolute;
+  z-index: 1;
+  top: 58vh;
+}
+
+#load_image-barr-fill {
+  background-color: blue;
+  height: 7.6vh;
+  width: 104.9vh;
+  animation: l-fill normal forwards 5s;
+  position: relative;
+  top: 75.2vh;
+  left: 0vh;
+}
+
+.z-teaser {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+}
+.z-teaser .lazo {
+  z-index: -1;
+  align-self: self-start;
+  justify-self: center;
+  position: absolute;
+  top: 3%;
+  width: 88vw;
+  height: auto;
+}
+.z-teaser .btn {
+  background-image: url(../../../media/imagenes/z_teaser/button_dowload.png);
+  align-self: center;
+  justify-self: center;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 16%;
+  height: 15%;
+  top: 27vw;
+}
+.z-teaser .btn:hover {
+  transition: 1s;
+  transform: scale(1.03);
+  filter: brightness(3.5);
+  cursor: pointer;
+}
+.z-teaser .gema1 {
+  position: absolute;
+  width: 5%;
+  left: 81.2%;
+  top: 8vw;
+  height: 4vw;
+  animation: gem 5s infinite;
+}
+.z-teaser .gema2 {
+  position: absolute;
+  width: 5%;
+  left: 13.2%;
+  top: 8vw;
+  height: 4vw;
+  animation: gem 5s infinite;
+}
+.z-teaser .zt-font {
+  font-family: "Press Start 2P", cursive;
+  color: #27B5B5;
+  top: 8vw;
+  font-size: 3vw;
+  position: absolute;
+}
+.z-teaser .video-game {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: auto;
+  filter: blur(4px);
+}
+
+@keyframes gem {
+  0% {
+    transform: rotateY(0deg);
+    filter: hue-rotate(0);
+  }
+  20% {
+    transform: rotateY(360deg);
+    filter: hue-rotate(90deg);
+  }
+}
+.let1 {
+  left: 21%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3s;
+}
+
+.let2 {
+  left: 24%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.1s;
+}
+
+.let3 {
+  left: 28%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.2s;
+}
+
+.let4 {
+  left: 31%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.3s;
+}
+
+.let5 {
+  left: 33.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.4s;
+}
+
+.let6 {
+  left: 36.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.5s;
+}
+
+.let7 {
+  left: 39.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.6s;
+}
+
+.let8 {
+  left: 42.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.7s;
+}
+
+.let9 {
+  left: 45.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 3.9s;
+}
+
+.let10 {
+  left: 49.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 5s;
+}
+
+.let11 {
+  left: 52.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.1s;
+}
+
+.let12 {
+  left: 56.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.2s;
+}
+
+.let13 {
+  left: 59.6%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.3s;
+}
+
+.let14 {
+  left: 62.2%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.4s;
+}
+
+.let15 {
+  left: 65.2%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.5s;
+}
+
+.let16 {
+  left: 68.2%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.6s;
+}
+
+.let17 {
+  left: 71.2%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.7s;
+}
+
+.let18 {
+  left: 74.2%;
+  animation: let2 1s infinite ease-in-out;
+  animation-delay: 4.8s;
+}
+
+@keyframes let2 {
+  0% {
+    top: 6vw;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    top: 5vw;
+    filter: hue-rotate(50deg);
+  }
+  100% {
+    top: 6vw;
+    filter: hue-rotate(0deg);
+  }
+}
+.z-personaje {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+}
+.z-personaje .rec1 {
+  position: absolute;
+  top: 106vh;
+  height: 110vh;
+  z-index: 1;
+  width: 100vh;
+}
+.z-personaje .soil {
+  position: absolute;
+  top: 194.4%;
+  left: 1%;
+  z-index: -2;
+  height: 24.6%;
+  width: 140%;
+}
+.z-personaje .fondo {
+  position: absolute;
+  top: 86.4%;
+  z-index: -5;
+  left: 27% !important;
+  width: 17%;
+  height: auto;
+}
+.z-personaje .cloud1 {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  width: 30%;
+  height: 40%;
+}
+.z-personaje .cloud2 {
+  position: relative;
+  left: 70%;
+  width: 30%;
+  height: 40%;
+  z-index: -3;
+}
+
+.player {
+  position: absolute;
+  top: 166.1%;
+  width: 12%;
+  left: 22%;
+  z-index: -1;
+}
+
+.duende {
+  position: absolute;
+  top: 181.1%;
+  width: 7%;
+  height: 20%;
+  left: 10%;
+  z-index: -1;
+}
+
+.z-personaje:hover #ani {
+  animation: run 3s normal forwards ease-in-out;
+}
+
+.z-personaje:hover #rn-soil {
+  animation: run-soil 10s normal forwards ease-in-out;
+}
+
+.z-personaje:hover #enemy {
+  animation: run-enemy 3s normal forwards ease-in-out;
+}
+
+.z-personaje:hover #sky {
+  animation: sky-anima 9s normal forwards ease-in-out;
+}
+
+.z-personaje:hover #cloud-1 {
+  animation: levitate 2s normal infinite ease-in-out;
+}
+
+.z-personaje:hover #cloud-2 {
+  animation: levitate2 2s normal infinite ease-in-out;
+}
+
+@keyframes run {
+  from {
+    left: 22%;
+  }
+  to {
+    left: 70%;
+  }
+}
+@keyframes run-enemy {
+  from {
+    left: 10%;
+  }
+  to {
+    left: 55%;
+  }
+}
+@keyframes run-soil {
+  from {
+    left: 22%;
+  }
+  to {
+    left: -40%;
+  }
+}
+@keyframes sky-anima {
+  0% {
+    width: 17%;
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    width: 80%;
+    filter: hue-rotate(150deg);
+  }
+  100% {
+    width: 80%;
+    filter: hue-rotate(0deg);
+  }
+}
+@keyframes levitate {
+  0% {
+    top: 30%;
+  }
+  50% {
+    top: 35%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+@keyframes levitate2 {
+  0% {
+    top: 10%;
+  }
+  50% {
+    top: 0%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+.text-bloc {
+  width: 69vh;
+  height: 68vh;
+  background-color: white;
+  z-index: 10;
+  align-self: center;
+  position: absolute;
+  top: 120vh;
+  left: 4vh;
+  border: solid black 5px;
+}
+
+.descri {
+  font-size: 2vw;
+  position: absolute;
+  top: 11vh;
+  font-family: "Press Start 2P";
+  text-align: -webkit-center;
+}
+
+.z-integrantes {
+  top: 8.4vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #8db1db;
+  background-size: cover;
+  display: flex;
+}
+.z-integrantes .integrantes-img {
+  width: 20vw;
+  height: 20vw;
+  align-self: center;
+  position: relative;
+  left: -3vh;
+  padding: 12vh;
+}
+.z-integrantes .carlos-img {
+  left: 7vh;
+}
+.z-integrantes .paula-img {
+  width: 28vw;
+  height: 28vw;
+  left: 2vh;
+}
+.z-integrantes .sergi-img {
+  width: 23vw;
+  height: 23vw;
+  left: -17vh;
+}
+.z-integrantes .gen-text {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  font-size: 5vw;
+  font-family: "Press Start 2P", cursive;
+  left: -196vh;
+  top: 29vh;
+  padding: 4vh;
+}
+
+.z-github {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 316vh;
+  background: linear-gradient(207deg, #2b3137 12%, #0d74e7 53%, #2fbb4f 86%);
+  display: flex;
+}
+
+.gato {
+  width: 47vh;
+  align-self: center;
+  position: absolute;
+  left: 75vh;
+}
+
+.lin-git {
+  align-self: center;
+  position: absolute;
+  top: 77vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P";
+  left: 44vh;
+  color: white;
+  text-decoration: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+html ::-webkit-scrollbar {
+  display: none;
+}
+
+.main-container {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0%;
+  background-color: white;
+  z-index: -2;
+}
+
+.f-scroll {
+  overflow: hidden !important;
+}
+
+/*# sourceMappingURL=custom.css.map */

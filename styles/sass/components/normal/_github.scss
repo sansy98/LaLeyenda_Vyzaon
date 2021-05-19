@@ -1,0 +1,24 @@
+.z-github{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 316vh;
+    background: linear-gradient(207deg, rgba(43,49,55,1) 12%, rgba(13,116,231,1) 53%, rgba(47,187,79,1) 86%);
+    display: flex;
+}
+.gato{
+    width: 47vh;
+    align-self: center;
+    position: absolute;
+    left: 75vh;
+}
+.lin-git{
+    align-self: center;
+    position: absolute;
+    top: 77vh;
+    font-size: 3vw;
+    font-family: 'Press Start 2P';
+    left: 44vh;
+    color: white;
+    text-decoration: none;
+}

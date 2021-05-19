@@ -1,0 +1,42 @@
+@import "var";
+
+.z-integrantes{
+    top: 8.4vw;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: rgb(141, 177, 219);
+    background-size: cover;
+    display: flex;
+    .integrantes-img{
+        width: 20vw;
+        height: 20vw;
+        align-self: center;
+        position: relative;
+        left: -3vh;
+        padding: 12vh;
+    }
+    .carlos-img{
+        left: 7vh;
+    }
+    .paula-img{
+        width: 28vw;
+        height:28vw;
+        left: 2vh;
+    } 
+    .sergi-img{
+        width: 23vw;
+        height:23vw;
+        left: -17vh;
+    }
+    .gen-text{
+        position: relative;
+        align-self: center;
+        justify-self: center;
+        font-size: 5vw;
+        font-family: $font-style;
+        left: -196vh;
+        top: 29vh;
+        padding: 4vh;
+    }
+}

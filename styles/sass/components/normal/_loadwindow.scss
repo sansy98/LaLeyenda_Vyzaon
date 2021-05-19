@@ -1,0 +1,89 @@
+@import "var.scss";
+
+header {
+    display: grid;
+    height: 100vh;
+
+    #loadingwindow {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        background-image: url(../../../media/imagenes/z_load/img_fondo_connection.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+        animation: up 2s normal forwards;
+        animation-delay: 4s;
+        z-index: 1;
+
+        #load_image {
+            align-self: center;
+            width: 74vh;
+            // height: 42vh;
+            position: absolute;
+            top: 33vh;
+
+        }
+        #load_image-back{
+            align-self: center;
+            width: 107vh;
+            height: 42vh;
+            position: absolute;
+            z-index: -1;
+        }
+
+    }
+
+    #main-font {
+        font-family: $font-style;
+        color: $font-color;
+        font-size: 7vh;
+        align-self: center;
+        position: absolute;
+        top: 60vh;
+    }
+}
+@keyframes up {
+    from {
+        top: 0%
+    }
+
+    to {
+        top: -100%
+    }
+}
+@keyframes l-fill {
+    from{
+        width: 0vh;
+
+    }
+    to{
+        width: 104vh;
+
+    }
+}
+
+#load_image-barr{
+    width: 107vh;
+    height: 42vh;
+    position: absolute;
+    z-index: -1;
+    top: 58vh !important;
+}
+#load_image-barr-letter{
+    width: 99vh;
+    height: 42vh;
+    position: absolute;
+    z-index: 1;
+    top: 58vh;
+}
+#load_image-barr-fill{
+    background-color: blue;
+    height: 7.6vh;
+    width: 104.9vh;
+    animation: l-fill normal forwards 5s;
+    position: relative;
+    top: 75.2vh;
+    left: 0vh;
+}
