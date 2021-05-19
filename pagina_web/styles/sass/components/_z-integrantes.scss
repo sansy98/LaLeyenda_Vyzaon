@@ -1,0 +1,22 @@
+.z-integrantes{
+    top: 5.4vw;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: rgb(141, 177, 219);
+    background-size: cover;
+    display: flex;
+    .integrantes-img{
+        width: 20vw;
+        height: 20vw;
+
+    }
+    .paula-img{
+        width: 28vw;
+        height:28vw;
+    } 
+    .sergi-img{
+        width: 23vw;
+        height:23vw;
+    }
+}

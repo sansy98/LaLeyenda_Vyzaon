@@ -8,11 +8,12 @@ header {
         position: absolute;
         display: flex;
         justify-content: center;
-        background-color: rgb(173, 159, 159);
+        background-image: url(../../../media/imagenes/z_load/img_fondo_connection.png);
+        background-size: cover;
         height: 100vh;
         width: 100%;
-        animation: up 5s normal forwards;
-        animation-delay: 5s;
+        animation: up 2s normal forwards;
+        animation-delay: 4s;
         z-index: 1;
 
         #load_image {

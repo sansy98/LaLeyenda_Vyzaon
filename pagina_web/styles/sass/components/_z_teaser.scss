@@ -9,8 +9,8 @@
         justify-self: center;
         position: absolute;
         top: 3%;
-        width: 88%;
-        height: 21%;
+        width: 88vw;
+        height: auto;
     }
 
     .btn {
@@ -22,6 +22,7 @@
         background-repeat: no-repeat;
         width: 16%;
         height: 15%;
+        top: 27vw;
     }
 
     .btn:hover {
@@ -65,8 +66,8 @@
         position: absolute;
         width: 5%;
         left: 81.2%;
-        top: 13%;
-        height: 7%;
+        top: 10vw;
+        height: 4vw;
         animation: gem 5s infinite;
     }
 
@@ -74,21 +75,24 @@
         position: absolute;
         width: 5%;
         left: 13.2%;
-        top: 13%;
-        height: 7%;
+        top: 10vw;
+        height: 4vw;
         animation: gem 5s infinite;
     }
 
     .zt-font {
         font-family: $font-style;
         color: $font-color2;
-        top: 8%;
-        font-size: 5vh;
+        top: 8vw;
+        font-size: 3vw;
         position: absolute;
     }
     .video-game{
         position: absolute;
         z-index: -1;
+        width: 100vw;
+        height: auto;
+        filter: blur(4px);
     }
 }
 
@@ -107,142 +111,142 @@
 .let1 {
     left: 21%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8s;
+    animation-delay: 3s;
 
 }
 
 .let2 {
     left: 24%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.1s;
+    animation-delay: 3.1s;
 
 }
 
 .let3 {
     left: 28%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.2s;
+    animation-delay: 3.2s;
 
 }
 
 .let4 {
     left: 31%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.3s;
+    animation-delay: 3.3s;
 
 }
 
 .let5 {
     left: 33.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.4s;
+    animation-delay: 3.4s;
 
 }
 
 .let6 {
     left: 36.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.5s;
+    animation-delay: 3.5s;
 
 }
 
 .let7 {
     left: 39.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.6s;
+    animation-delay: 3.6s;
 
 }
 
 .let8 {
     left: 42.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.7s;
+    animation-delay: 3.7s;
 
 }
 
 .let9 {
     left: 45.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 8.9s;
+    animation-delay: 3.9s;
 
 }
 
 .let10 {
     left: 49.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9s;
+    animation-delay: 5s;
 
 }
 
 .let11 {
     left: 52.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.1s;
+    animation-delay: 4.1s;
 
 }
 
 .let12 {
     left: 56.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.2s;
+    animation-delay: 4.2s;
 
 }
 
 .let13 {
     left: 59.6%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.3s;
+    animation-delay: 4.3s;
 
 }
 
 .let14 {
     left: 62.2%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.4s;
+    animation-delay: 4.4s;
 
 }
 
 .let15 {
     left: 65.2%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.5s;
+    animation-delay: 4.5s;
 
 }
 
 .let16 {
     left: 68.2%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.6s;
+    animation-delay: 4.6s;
 
 }
 
 .let17 {
     left: 71.2%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.7s;
+    animation-delay: 4.7s;
 
 }
 
 .let18 {
     left: 74.2%;
     animation: let2 1s infinite ease-in-out;
-    animation-delay: 9.8s;
+    animation-delay: 4.8s;
 
 }
 
 @keyframes let2 {
     0% {
-        top: 8%;
+        top: 6vw;
         filter: hue-rotate(0deg);
     }
 
     50% {
-        top: 5%;
+        top: 5vw;
         filter: hue-rotate(50deg);
     }
 
     100% {
-        top: 8%;
+        top: 6vw;
         filter: hue-rotate(0deg);
     }
 }

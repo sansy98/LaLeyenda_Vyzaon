@@ -3,7 +3,7 @@
 @import "components/loadwindow.scss";
 @import "components/z_teaser.scss";
 @import "components/z_personaje.scss";
-@import "components/z_monstruos.scss";
+@import "components/z-integrantes";
 // @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
 
 // compilar sass a css
@@ -14,6 +14,7 @@ html{
     ::-webkit-scrollbar{
         display: none;
     }
+    overflow-x: hidden;
 }
 .main-container {
     display: grid;
@@ -24,4 +25,6 @@ html{
     background-color: rgb(255, 255, 255);
     z-index: -2;
 }
-    
+.f-scroll{
+    overflow: hidden !important;
+}
