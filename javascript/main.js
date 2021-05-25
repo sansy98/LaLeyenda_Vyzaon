@@ -1,7 +1,7 @@
 // $(document).ready(function() {
 //         setTimeout(function(){
 //           $('header').remove();
-//         }, 6100)
+//         }, 6900)
 // });
 // $(document).ready(function() {
 //   setTimeout(function(){

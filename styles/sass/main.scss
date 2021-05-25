@@ -1,5 +1,4 @@
 @import "components/normal/resset";
-@import "components/normal/remove";
 @import "components/normal/loadwindow.scss";
 @import "components/normal/z_teaser.scss";
 @import "components/normal/z_personaje.scss";
@@ -33,4 +32,15 @@ html{
 }
 .f-scroll{
     overflow: hidden !important;
+}
+@media (max-width: 400px){
+    .main-container {
+        display: grid;
+        width: 100vh;
+        height: 100vh;
+        position: absolute;
+        top: 0%;
+        background-color: rgb(255, 255, 255);
+        z-index: -2;
+    }
 }

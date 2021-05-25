@@ -149,7 +149,7 @@ header #loadingwindow {
   height: 100vh;
   width: 100%;
   animation: up 2s normal forwards;
-  animation-delay: 4s;
+  animation-delay: 5s;
   z-index: 1;
 }
 header #loadingwindow #load_image {
@@ -216,6 +216,36 @@ header #main-font {
   left: 0vh;
 }
 
+@media (max-width: 400px) {
+  header {
+    display: grid;
+    height: 100vh;
+  }
+  header #loadingwindow {
+    display: none;
+  }
+  header #loadingwindow #load_image {
+    display: none;
+  }
+  header #loadingwindow #load_image-back {
+    display: none;
+  }
+  header #main-font {
+    display: none;
+  }
+
+  #load_image-barr {
+    display: none;
+  }
+
+  #load_image-barr-letter {
+    display: none;
+  }
+
+  #load_image-barr-fill {
+    display: none;
+  }
+}
 .z-teaser {
   display: grid;
   width: 100%;
@@ -408,6 +438,201 @@ header #main-font {
   100% {
     top: 6vw;
     filter: hue-rotate(0deg);
+  }
+}
+@media (max-width: 400px) {
+  .z-teaser {
+    display: grid;
+    width: 100vh;
+    height: 100vh;
+  }
+  .z-teaser .video-game {
+    position: absolute;
+    z-index: -1;
+    width: 100vh;
+    height: auto;
+    filter: blur(4px);
+  }
+  .z-teaser .lazo {
+    z-index: -1;
+    position: absolute;
+    top: 3%;
+    width: 203vw;
+    height: auto;
+    left: 18vw;
+  }
+  .z-teaser .gema1 {
+    position: absolute;
+    width: 5vh;
+    left: 191vw;
+    top: 25vw;
+    height: 4vw;
+    animation: gem 5s infinite;
+  }
+  .z-teaser .gema2 {
+    position: absolute;
+    width: 5vh;
+    left: 34vw;
+    top: 25vw;
+    height: 5vw;
+    animation: gem 5s infinite;
+  }
+  .z-teaser .zt-font {
+    font-family: "Press Start 2P", cursive;
+    color: #27B5B5;
+    top: 15vw;
+    font-size: 3vw;
+    position: absolute;
+  }
+  .z-teaser .btn {
+    background-image: url(../../../media/imagenes/z_teaser/button_dowload.png);
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16%;
+    height: 15%;
+    top: 70vw;
+  }
+  .z-teaser .btn:hover {
+    transition: 1s;
+    transform: scale(1.03);
+    filter: brightness(3.5);
+    cursor: pointer;
+  }
+
+  @keyframes gem {
+    0% {
+      transform: rotateY(0deg);
+      filter: hue-rotate(0);
+    }
+    20% {
+      transform: rotateY(360deg);
+      filter: hue-rotate(90deg);
+    }
+  }
+  .let1 {
+    left: 23%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0s;
+  }
+
+  .let2 {
+    left: 26%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.1s;
+  }
+
+  .let3 {
+    left: 30%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.2s;
+  }
+
+  .let4 {
+    left: 33%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.3s;
+  }
+
+  .let5 {
+    left: 35.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.4s;
+  }
+
+  .let6 {
+    left: 38.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.5s;
+  }
+
+  .let7 {
+    left: 41.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.6s;
+  }
+
+  .let8 {
+    left: 44.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.7s;
+  }
+
+  .let9 {
+    left: 47.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 0.9s;
+  }
+
+  .let10 {
+    left: 52.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1s;
+  }
+
+  .let11 {
+    left: 54.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.1s;
+  }
+
+  .let12 {
+    left: 58.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.2s;
+  }
+
+  .let13 {
+    left: 61.6%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.3s;
+  }
+
+  .let14 {
+    left: 64.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.4s;
+  }
+
+  .let15 {
+    left: 67.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  .let16 {
+    left: 70.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.6s;
+  }
+
+  .let17 {
+    left: 73.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.7s;
+  }
+
+  .let18 {
+    left: 76.2%;
+    animation: let2 1s infinite ease-in-out;
+    animation-delay: 1.8s;
+  }
+
+  @keyframes let2 {
+    0% {
+      top: 15vw;
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      top: 11vw;
+      filter: hue-rotate(50deg);
+    }
+    100% {
+      top: 15vw;
+      filter: hue-rotate(0deg);
+    }
   }
 }
 .z-personaje {
@@ -614,6 +839,13 @@ header #main-font {
   top: 29vh;
   padding: 4vh;
 }
+.z-integrantes .title-inte {
+  font-size: 4vw;
+  font-family: "Press Start 2P", cursive;
+  position: absolute;
+  left: 19vw;
+  top: 5vh;
+}
 
 .z-github {
   width: 100vw;
@@ -661,6 +893,18 @@ html ::-webkit-scrollbar {
 
 .f-scroll {
   overflow: hidden !important;
+}
+
+@media (max-width: 400px) {
+  .main-container {
+    display: grid;
+    width: 100vh;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    background-color: white;
+    z-index: -2;
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
