@@ -3,14 +3,17 @@
     height: 100vh;
     position: absolute;
     top: 316vh;
-    background: linear-gradient(207deg, rgba(43,49,55,1) 12%, rgba(13,116,231,1) 53%, rgba(47,187,79,1) 86%);
+    background: linear-gradient(222deg, #2b3137, #0d74e7, #2fbb4f);
+    background-size: 600% 600%;
     display: flex;
+    animation: gradient 10s linear infinite;
 }
 .gato{
     width: 47vh;
     align-self: center;
     position: absolute;
     left: 75vh;
+    animation: michi 10s linear infinite;
 }
 .lin-git{
     align-self: center;
@@ -21,4 +24,13 @@
     left: 44vh;
     color: white;
     text-decoration: none;
+}
+@keyframes michi {
+    from{ transform: rotate(0deg);}
+    to{ transform: rotate(360deg);}
+}
+@keyframes gradient {
+    0%{background-position:90% 0%}
+    50%{background-position:11% 100%}
+    100%{background-position:90% 0%}
 }

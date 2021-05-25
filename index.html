@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="disablea" class="f-scrolla">
+<html lang="en" id="disable" class="f-scroll">
 
 <head>
     <meta charset="UTF-8">
@@ -29,19 +29,19 @@
 
 </head>
 
-<body>
+<body >
     <header>
-        <div id="loadingwindow">
-            <img src="media\imagenes\z_load\logo.svg" alt="logo empresa" id="load_image" >
-            <img src="media\imagenes\z_load\back.svg" alt="" id="load_image-back" >
-            <p id="main-font" >CONNECTION</p>
+        <div id="loadingwindow" class="animate__animated ">
+            <img src="media\imagenes\z_load\logo.svg" alt="logo empresa" id="load_image"  class="animate__animated animate__backInDown">
+            <img src="media\imagenes\z_load\back.svg" alt="" id="load_image-back"  class="animate__animated animate__backInLeft">
+            <p id="main-font" class="animate__animated animate__backInRight">CONNECTION</p>
 
                 <img src="media\imagenes\z_load\barra-fondo.svg" alt="" id="load_image-barr" >
                 <div id="load_image-barr-fill"></div>
         </div>
     </header>
 
-    <main class="main-container">
+    <main class="main-container visivle" id="display-window">
         <div class="z-teaser">
             <video src="media/videos/game-preview.mp4" loop autoplay muted class="video-game"></video>
             <img src="media/imagenes/z_teaser/lazo.png" alt="" class="lazo">
@@ -82,13 +82,13 @@
             <img src="media/imagenes/z_integrantes/cara_carlos_pixelart.png" alt="" class="integrantes-img carlos-img">
             <img src="media/imagenes/z_integrantes/cara_paula_pixelart.png" alt="" class="integrantes-img paula-img">
             <img src="media/imagenes/z_integrantes/cara_sergi_pixelart.png" alt="" class="integrantes-img sergi-img">
-            <p class="gen-text">carlos</p>
-            <p class="gen-text">paula</p>
-            <p class="gen-text">sergi</p>
+            <p id="gen-text">carlos</p>
+            <p id="gen-text">paula</p>
+            <p id="gen-text">sergi</p>
         </div>
         <div class="z-github">
             <img src="media/imagenes/github/Group 4.svg" alt="" class="gato">
-            <a href="" class="lin-git"> visita nuestro github</a>
+            <a href="" class="lin-git"> Visita nuestro GitHub</a>
         </div>
     </main>
 </body>

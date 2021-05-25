@@ -33,14 +33,17 @@ html{
 .f-scroll{
     overflow: hidden !important;
 }
-@media (max-width: 400px){
-    .main-container {
-        display: grid;
-        width: 100vh;
-        height: 100vh;
-        position: absolute;
-        top: 0%;
-        background-color: rgb(255, 255, 255);
-        z-index: -2;
-    }
+.visivle{
+    display: none;
 }
+// @media (max-width: 400px){
+//     .main-container {
+//         display: grid;
+//         width: 100vh;
+//         height: 100vh;
+//         position: absolute;
+//         top: 0%;
+//         background-color: rgb(255, 255, 255);
+//         z-index: -2;
+//     }
+// }

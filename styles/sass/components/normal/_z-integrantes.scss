@@ -1,5 +1,21 @@
 @import "var";
 
+.z-integrantes:hover #gen-text{
+    animation: bounce;
+    animation-duration: 2s; 
+}
+.z-integrantes:hover .title-inte{
+    animation: fadeInDown;
+    animation-duration: 2s; 
+}
+.z-integrantes:hover .integrantes-img{
+    animation: shakeX;
+    animation-duration: 2s; 
+}
+
+// @keyframes tra {
+//     from{ transform: rotateY(360deg);}    
+// }
 .z-integrantes{
     top: 8.4vw;
     width: 100vw;
@@ -29,7 +45,7 @@
         height:23vw;
         left: -17vh;
     }
-    .gen-text{
+    #gen-text{
         position: relative;
         align-self: center;
         justify-self: center;

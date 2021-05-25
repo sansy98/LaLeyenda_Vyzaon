@@ -148,8 +148,6 @@ header #loadingwindow {
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-  animation: up 2s normal forwards;
-  animation-delay: 5s;
   z-index: 1;
 }
 header #loadingwindow #load_image {
@@ -216,36 +214,6 @@ header #main-font {
   left: 0vh;
 }
 
-@media (max-width: 400px) {
-  header {
-    display: grid;
-    height: 100vh;
-  }
-  header #loadingwindow {
-    display: none;
-  }
-  header #loadingwindow #load_image {
-    display: none;
-  }
-  header #loadingwindow #load_image-back {
-    display: none;
-  }
-  header #main-font {
-    display: none;
-  }
-
-  #load_image-barr {
-    display: none;
-  }
-
-  #load_image-barr-letter {
-    display: none;
-  }
-
-  #load_image-barr-fill {
-    display: none;
-  }
-}
 .z-teaser {
   display: grid;
   width: 100%;
@@ -799,6 +767,21 @@ header #main-font {
   text-align: -webkit-center;
 }
 
+.z-integrantes:hover #gen-text {
+  animation: bounce;
+  animation-duration: 2s;
+}
+
+.z-integrantes:hover .title-inte {
+  animation: fadeInDown;
+  animation-duration: 2s;
+}
+
+.z-integrantes:hover .integrantes-img {
+  animation: shakeX;
+  animation-duration: 2s;
+}
+
 .z-integrantes {
   top: 8.4vw;
   width: 100vw;
@@ -829,7 +812,7 @@ header #main-font {
   height: 23vw;
   left: -17vh;
 }
-.z-integrantes .gen-text {
+.z-integrantes #gen-text {
   position: relative;
   align-self: center;
   justify-self: center;
@@ -852,8 +835,10 @@ header #main-font {
   height: 100vh;
   position: absolute;
   top: 316vh;
-  background: linear-gradient(207deg, #2b3137 12%, #0d74e7 53%, #2fbb4f 86%);
+  background: linear-gradient(222deg, #2b3137, #0d74e7, #2fbb4f);
+  background-size: 600% 600%;
   display: flex;
+  animation: gradient 10s linear infinite;
 }
 
 .gato {
@@ -861,6 +846,7 @@ header #main-font {
   align-self: center;
   position: absolute;
   left: 75vh;
+  animation: michi 10s linear infinite;
 }
 
 .lin-git {
@@ -874,6 +860,25 @@ header #main-font {
   text-decoration: none;
 }
 
+@keyframes michi {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 90% 0%;
+  }
+  50% {
+    background-position: 11% 100%;
+  }
+  100% {
+    background-position: 90% 0%;
+  }
+}
 html {
   overflow-x: hidden;
 }
@@ -895,16 +900,8 @@ html ::-webkit-scrollbar {
   overflow: hidden !important;
 }
 
-@media (max-width: 400px) {
-  .main-container {
-    display: grid;
-    width: 100vh;
-    height: 100vh;
-    position: absolute;
-    top: 0%;
-    background-color: white;
-    z-index: -2;
-  }
+.visivle {
+  display: none;
 }
 
 /*# sourceMappingURL=custom.css.map */
