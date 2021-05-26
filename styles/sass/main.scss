@@ -36,6 +36,13 @@ html{
 .visivle{
     display: none;
 }
+
+.z-teaser .btn {
+    background-image: url(../../media/imagenes/z_teaser/button_dowload.png);
+}
+#loadingwindow{
+    background-image: url(../../media/imagenes/z_load/img_fondo_connection.svg);
+}
 // @media (max-width: 400px){
 //     .main-container {
 //         display: grid;

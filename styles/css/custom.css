@@ -143,7 +143,6 @@ header #loadingwindow {
   position: absolute;
   display: flex;
   justify-content: center;
-  background-image: url(../../../media/imagenes/z_load/img_fondo_connection.svg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -902,6 +901,14 @@ html ::-webkit-scrollbar {
 
 .visivle {
   display: none;
+}
+
+.z-teaser .btn {
+  background-image: url(../../media/imagenes/z_teaser/button_dowload.png);
+}
+
+#loadingwindow {
+  background-image: url(../../media/imagenes/z_load/img_fondo_connection.svg);
 }
 
 /*# sourceMappingURL=custom.css.map */
